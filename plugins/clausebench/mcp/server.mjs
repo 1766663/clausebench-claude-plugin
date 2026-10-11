@@ -9,11 +9,14 @@
 // it does not hold it: "not in the registry" is an answer, and a guess dressed as one is the failure this
 // whole product exists to prevent.
 
-const BASE = (process.env.CLAUSEBENCH_API_BASE || "https://clausebench.com/api/v1").replace(/\/+$/, "");
+// A setting the user never filled can arrive as its own placeholder ("${user_config.api_key}") rather than empty:
+// that is "not set", not a value.
+const setting = (v) => { const t = (v || "").trim(); return !t || t.startsWith("${") ? "" : t; };
+const BASE = (setting(process.env.CLAUSEBENCH_API_BASE) || "https://clausebench.com/api/v1").replace(/\/+$/, "");
 // The sandbox key is public and documented (criterion 7 of spec 18): it answers on ten well-known records, so
 // the plugin does something useful in the first minute without anybody asking us for anything.
 const SANDBOX_KEY = "cbk_sandbox";
-const KEY = (process.env.CLAUSEBENCH_API_KEY || "").trim() || SANDBOX_KEY;
+const KEY = setting(process.env.CLAUSEBENCH_API_KEY) || SANDBOX_KEY;
 const USING_SANDBOX = KEY === SANDBOX_KEY;
 
 const TOOLS = [
