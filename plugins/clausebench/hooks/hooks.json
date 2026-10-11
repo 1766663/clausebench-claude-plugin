@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/new-dependency.mjs", "${user_config.watch_dependencies}"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

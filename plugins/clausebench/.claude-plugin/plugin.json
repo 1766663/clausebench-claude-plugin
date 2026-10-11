@@ -1,0 +1,41 @@
+{
+  "name": "clausebench",
+  "displayName": "clausebench vendor registry",
+  "version": "0.2.0",
+  "description": "Looks up who a vendor actually is — contracting legal entity, country, transfer mechanism and a checked link to its DPA — in the clausebench vendor registry, and builds a sub-processor list from the services your repository uses. Its MCP server sends the vendor names and domains you ask about to the clausebench API (clausebench.com); nothing else from your project leaves your machine. An optional hook notices when a dependency file (package.json, requirements.txt, go.mod and similar) gains a package and suggests looking it up; it makes no network call and can be switched off in the plugin settings.",
+  "author": { "name": "clausebench", "email": "hello@clausebench.com", "url": "https://clausebench.com" },
+  "homepage": "https://clausebench.com/registry-api",
+  "repository": "https://github.com/1766663/clausebench-claude-plugin",
+  "license": "MIT",
+  "keywords": ["privacy", "gdpr", "vendors", "subprocessors", "dpa", "compliance-documentation"],
+  "mcpServers": {
+    "clausebench-registry": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/server.mjs"],
+      "env": {
+        "CLAUSEBENCH_API_KEY": "${user_config.api_key}",
+        "CLAUSEBENCH_API_BASE": "${user_config.api_base}"
+      }
+    }
+  },
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "clausebench API key",
+      "description": "Leave it empty to use the public sandbox key, which answers on ten well-known records and no others. A key of your own answers on the whole registry.",
+      "sensitive": true
+    },
+    "api_base": {
+      "type": "string",
+      "title": "API address",
+      "description": "Change this only if you are pointing at something other than the live registry.",
+      "default": "https://clausebench.com/api/v1"
+    },
+    "watch_dependencies": {
+      "type": "boolean",
+      "title": "Notice new dependencies",
+      "description": "When a dependency file in this project gains a package, suggest looking the vendor up. Runs locally, makes no network call. Turn off to disable the hook entirely.",
+      "default": true
+    }
+  }
+}
