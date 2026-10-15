@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- This repository is now the only home of the plugin; its file checks (`node --test`) moved here and run in CI.
+
 ## 0.2.1 — 2026-10-11
 - A setting left unset arrives as its placeholder on a fresh install; the MCP server now treats that as unset and uses the sandbox key and the default address.
 

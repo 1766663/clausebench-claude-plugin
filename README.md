@@ -52,6 +52,11 @@ without a warranty of completeness; the decisions your documents present remain 
 Claude Code with plugin support, and Node.js 18 or later on your machine (the MCP server and the hook are single,
 dependency-free `.mjs` files).
 
+## Checks
+
+`claude plugin validate . --strict` and `node --test` (no install needed) run on every push; both should pass
+before a change is merged.
+
 ## Support
 
 [hello@clausebench.com](mailto:hello@clausebench.com) · issues on this repository · security reports: see
