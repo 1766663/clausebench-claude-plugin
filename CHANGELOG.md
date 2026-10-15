@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 0.2.2 — 2026-10-15
+- A listing icon (`.claude-plugin/icon.png`, 1024 px).
 - This repository is now the only home of the plugin; its file checks (`node --test`) moved here and run in CI.
 
 ## 0.2.1 — 2026-10-11

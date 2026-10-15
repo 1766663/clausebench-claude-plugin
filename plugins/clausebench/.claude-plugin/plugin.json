@@ -1,7 +1,7 @@
 {
   "name": "clausebench",
   "displayName": "clausebench vendor registry",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Looks up who a vendor actually is — contracting legal entity, country, transfer mechanism and a checked link to its DPA — in the clausebench vendor registry, and builds a sub-processor list from the services your repository uses. Its MCP server sends the vendor names and domains you ask about to the clausebench API (clausebench.com); nothing else from your project leaves your machine. An optional hook notices when a dependency file (package.json, requirements.txt, go.mod and similar) gains a package and suggests looking it up; it makes no network call and can be switched off in the plugin settings.",
   "author": { "name": "clausebench", "email": "hello@clausebench.com", "url": "https://clausebench.com" },
   "homepage": "https://clausebench.com/registry-api",

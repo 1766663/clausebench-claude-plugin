@@ -8,7 +8,7 @@
       "displayName": "clausebench vendor registry",
       "source": "./plugins/clausebench",
       "description": "Looks up a vendor's contracting legal entity, country, transfer mechanism and checked DPA link in the clausebench registry, and builds a sub-processor list from the services your repository uses. Sends the vendor names you ask about to clausebench.com; an optional local hook notices new dependencies.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "category": "productivity",
       "tags": ["privacy", "gdpr", "vendors", "subprocessors", "dpa"]
     }
